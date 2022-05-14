@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<head>
+    <meta charset='utf-8'>
+</head>
+
+{% if resp == 2 %}
+<p> Sorry, this appointment is no longer available. Please go
+     <a href="{% url 'clinics:search' %}">back</a> and try again. </p>
+{% elif resp == 1 %} 
+<center>
+    <p> Your appointment for </p>
+    <p> {{ time }} </p>
+    <p> at {{clinic}} </p>
+    <p> has been successfully scheduled! Please visit your user profile page to view or cancel appointments. </p>
+</center>
+{% endif %}
+{% endblock %}
